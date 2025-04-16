@@ -5,7 +5,7 @@ APawnBase::APawnBase()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void APawnBase::OnTakeAIDamage_Implementation(int32 Amount)
+void APawnBase::OnTakeDamage_Implementation(int32 Amount)
 {
 	RuntimeStatus.CurrentHealth = FMath::Max(0, RuntimeStatus.CurrentHealth - Amount);
 	if (RuntimeStatus.CurrentHealth == 0)

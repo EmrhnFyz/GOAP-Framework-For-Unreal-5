@@ -51,7 +51,7 @@ public:
 
 	// Extendable: Called when the pawn takes damage
 	UFUNCTION(BlueprintNativeEvent, Category = "GOAP")
-	void OnTakeAIDamage(int32 Amount);
+	void OnTakeDamage(int32 Amount);
 
 	// Extendable: Called when the pawn dies
 	UFUNCTION(BlueprintNativeEvent, Category = "GOAP")
