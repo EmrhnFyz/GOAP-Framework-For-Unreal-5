@@ -47,9 +47,12 @@ public:
     }
 
     UFUNCTION(BlueprintCallable, Category = "GOAP")
-    void Start()
+    void Start() const
     {
-        if (Strategy) Strategy->Start();
+        if (Strategy)
+        {
+            Strategy->Start();
+        }
     }
 
     UFUNCTION(BlueprintCallable, Category = "GOAP")
@@ -65,14 +68,20 @@ public:
         }
         for (UBelief* Effect : Effects)
         {
-            if (Effect) Effect->Evaluate();
+            if (Effect)
+            {
+                Effect->Evaluate();
+            }
         }
     }
 
     UFUNCTION(BlueprintCallable, Category = "GOAP")
     void Stop()
     {
-        if (Strategy) Strategy->Stop();
+        if (Strategy)
+        {
+            Strategy->Stop();
+        }
     }
 
     // Builder pattern for C++
@@ -86,7 +95,7 @@ public:
         Builder& AddPrecondition(UBelief* Precondition);
         Builder& AddEffect(UBelief* Effect);
 
-        UAgentAction* Build();
+        UAgentAction* Build() const;
 
     private:
         UAgentAction* Action;

@@ -42,7 +42,7 @@ UAgentAction::Builder& UAgentAction::Builder::AddEffect(UBelief* Effect)
 	return *this;
 }
 
-UAgentAction* UAgentAction::Builder::Build()
+UAgentAction* UAgentAction::Builder::Build() const
 {
 	return Action;
 }

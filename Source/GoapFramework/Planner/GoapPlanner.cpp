@@ -1,5 +1,6 @@
 #include "GoapPlanner.h"
 #include "../GoapAgent.h"
+#include "../Utils/PriorityQueue.h"
 
 UActionPlan* UGoapPlanner::Plan(AGoapAgent* Agent, const TSet<UGoal*>& Goals, UGoal* MostRecentGoal)
 {
@@ -86,7 +87,7 @@ void UGoapPlanner::RemoveSatisfiedEffects(UNode* Node)
 
 bool UGoapPlanner::FindPath(UNode* StartNode, const TSet<UAgentAction*>& AvailableActions, TArray<UNode*>& OutPath)
 {
-    PriorityQueue<UNode*> OpenSet;
+    TPriorityQueue<UNode*> OpenSet;
     TSet<UNode*> ClosedSet;
     TArray<UNode*> CreatedNodes;
     CreatedNodes.Add(StartNode);

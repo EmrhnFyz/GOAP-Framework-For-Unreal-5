@@ -4,7 +4,7 @@
 
 // Min-heap priority queue for any type T
 template<typename T>
-class PriorityQueue
+class TPriorityQueue
 {
 public:
     // Pair of item and its priority

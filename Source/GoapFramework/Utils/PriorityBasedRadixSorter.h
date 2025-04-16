@@ -63,12 +63,12 @@ private:
             Count[i] += Count[i - 1];
         }
 
-        for (int32 i = N - 1; i >= 0; i--)
+        for (int32 i = N - 1; i >= 0; --i)
         {
             int32 Index = (Priorities[i] / Exp) % 10;
             Index = FMath::Clamp(Index, 0, 9);
             Output[Count[Index] - 1] = Items[i];
-            Count[Index]--;
+            --Count[Index];
         }
 
         for (int32 i = 0; i < N; i++)

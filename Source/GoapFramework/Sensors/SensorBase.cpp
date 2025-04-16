@@ -38,13 +38,19 @@ void ASensorBase::TimerTick()
 
 bool ASensorBase::IsTargetInRange(APawnBase* Pawn) const
 {
-    if (!TrackingComponent || !Pawn) return false;
+    if (!TrackingComponent || !Pawn)
+    {
+        return false;
+    }
     return FVector::Dist(TrackingComponent->GetComponentLocation(), Pawn->GetActorLocation()) <= DetectionRadius;
 }
 
 FVector ASensorBase::GetClosestTargetPosition() const
 {
-    if (Targets.Num() == 0 || !TrackingComponent) return FVector::ZeroVector;
+    if (Targets.Num() == 0 || !TrackingComponent)
+    {
+        return FVector::ZeroVector;
+    }
 
     float ClosestDist = TNumericLimits<float>::Max();
     FVector ClosestPos = FVector::ZeroVector;
@@ -70,14 +76,21 @@ void ASensorBase::SignalTargetsChanged()
 
 void ASensorBase::AddTarget(APawnBase* Target)
 {
-    if (!IsValidTarget(Target)) return;
+    if (!IsValidTarget(Target))
+    {
+        return;
+    }
+    
     Targets.Add(Target);
     SignalTargetsChanged();
 }
 
 void ASensorBase::RemoveTarget(APawnBase* Target)
 {
-    if (!Target) return;
+    if (!Target)
+    {
+        return;
+    }
     Targets.Remove(Target);
     SignalTargetsChanged();
 }
@@ -89,7 +102,10 @@ void ASensorBase::CleanNullTargets()
 
 bool ASensorBase::IsValidTarget(APawnBase* Target) const
 {
-    if (!Target || Targets.Contains(Target) || !SensorOwner) return false;
+    if (!Target || Targets.Contains(Target) || !SensorOwner)
+    {
+        return false;
+    }
     // Add your tag/party/ignore logic here as needed
     return true;
 }

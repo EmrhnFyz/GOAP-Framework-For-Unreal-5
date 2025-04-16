@@ -8,6 +8,7 @@
 #include "../Utils/ObjectPool.h"
 #include "GoapPlanner.generated.h"
 
+class AGoapAgent;
 class UGoapAgent;
 
 UCLASS(Blueprintable)
