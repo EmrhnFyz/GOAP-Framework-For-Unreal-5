@@ -1,4 +1,4 @@
-# GOAPFramework-For-Unreal-5
+# GOAP Framework For Unreal 5
 
 A Goal-Oriented Action Planning (GOAP) framework for Unreal Engine 5, designed to simplify AI development and enhance gameplay experiences.
 
