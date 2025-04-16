@@ -12,7 +12,7 @@ A Goal-Oriented Action Planning (GOAP) framework for Unreal Engine 5, designed t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/EmrhnFyz/GOAPFramework-For-Unreal-5.git
+   git clone https://github.com/EmrhnFyz/GOAP-Framework-For-Unreal-5.git
 2. Open your Unreal Engine 5 project.
 3. Copy the framework files into your project's Plugins folder.
 4. Enable the plugin in the Unreal Engine editor.
