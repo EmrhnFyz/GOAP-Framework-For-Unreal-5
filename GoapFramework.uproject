@@ -5,13 +5,9 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "GoapFramework",
+			"Name": "GoapTestGame",
 			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"CoreUObject",
-				"Engine"
-			]
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
@@ -21,6 +17,10 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "GoapFramework",
+			"Enabled": true
 		}
 	]
 }

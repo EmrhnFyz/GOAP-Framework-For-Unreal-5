@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "GOAP Framework",
+	"Description": "Goal-Oriented Action Planning AI framework with A* planner, blackboard, sensors, and memory systems.",
+	"Category": "AI",
+	"CreatedBy": "Emirhan Feyzullahoglu",
+	"CreatedByURL": "https://github.com/EmrhnFyz",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "GoapFramework",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
