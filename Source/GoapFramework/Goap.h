@@ -15,6 +15,14 @@
 
 // Sensors
 #include "Sensors/SensorBase.h"
+#include "Sensors/OverlapSensor.h"
+
+// Blackboard
+#include "Blackboard/GoapBlackboard.h"
+#include "Blackboard/GoapBlackboardData.h"
+
+// Memory
+#include "Memory/AgentMemory.h"
 
 // Pawn base
 #include "PawnBase.h"

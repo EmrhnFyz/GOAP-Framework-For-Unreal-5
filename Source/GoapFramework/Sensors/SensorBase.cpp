@@ -106,7 +106,49 @@ bool ASensorBase::IsValidTarget(APawnBase* Target) const
     {
         return false;
     }
-    // Add your tag/party/ignore logic here as needed
+
+    // Skip dead pawns
+    if (!Target->IsAlive())
+    {
+        return false;
+    }
+
+    // Skip self
+    if (Target == SensorOwner)
+    {
+        return false;
+    }
+
+    // Determine relationship based on PartyID
+    bool bSameParty = (Target->RuntimeStatus.PartyID == SensorOwner->RuntimeStatus.PartyID);
+    bool bIsEnemy = !bSameParty && Target->RuntimeStatus.PartyID != 0;
+    bool bIsFriendly = bSameParty && Target->RuntimeStatus.PartyID != 0;
+    bool bIsNeutral = (Target->RuntimeStatus.PartyID == 0);
+
+    // Check detection type flags
+    int32 TargetFlags = 0;
+    if (bIsEnemy)    TargetFlags |= static_cast<int32>(ESensorDetectionType::Enemy);
+    if (bIsFriendly) TargetFlags |= static_cast<int32>(ESensorDetectionType::Friendly);
+    if (bIsNeutral)  TargetFlags |= static_cast<int32>(ESensorDetectionType::Neutral);
+
+    // Check pawn tags for special types
+    if (Target->HasPawnTag(FName("Destructible")))
+        TargetFlags |= static_cast<int32>(ESensorDetectionType::Destructible);
+    if (Target->HasPawnTag(FName("Gate")))
+        TargetFlags |= static_cast<int32>(ESensorDetectionType::Gate);
+
+    // Must match at least one detection type
+    if ((DetectionType & TargetFlags) == 0)
+    {
+        return false;
+    }
+
+    // Must not match any ignore type
+    if ((IgnoreType & TargetFlags) != 0)
+    {
+        return false;
+    }
+
     return true;
 }
 

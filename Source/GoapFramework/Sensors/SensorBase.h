@@ -62,10 +62,10 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sensor")
     bool bManualDetection = false;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sensor", meta = (Bitmask, BitmaskEnum = "ESensorDetectionType"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sensor", meta = (Bitmask, BitmaskEnum = "/Script/GoapFramework.ESensorDetectionType"))
     int32 DetectionType = (int32)ESensorDetectionType::All;
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sensor", meta = (Bitmask, BitmaskEnum = "ESensorDetectionType"))
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sensor", meta = (Bitmask, BitmaskEnum = "/Script/GoapFramework.ESensorDetectionType"))
     int32 IgnoreType = 0;
 
     UPROPERTY(BlueprintReadOnly, Category = "Sensor")

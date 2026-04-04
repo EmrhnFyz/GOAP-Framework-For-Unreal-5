@@ -44,6 +44,23 @@ void UBeliefFactory::AddLocationBelief(EBeliefName Key, float Distance, FVector 
 	}
 }
 
+void UBeliefFactory::AddDynamicLocationBelief(EBeliefName Key, float Distance, TFunction<FVector()> LocationProvider)
+{
+	if (Beliefs && LocationProvider)
+	{
+		(*Beliefs).Add(Key, UBelief::Create(this, Key,
+			[this, LocationProvider, Distance]()
+			{
+				return InRangeOf(LocationProvider(), Distance);
+			},
+			[LocationProvider]()
+			{
+				return LocationProvider();
+			}
+		));
+	}
+}
+
 bool UBeliefFactory::InRangeOf(const FVector& Position, float Range) const
 {
 	if (!Agent)

@@ -19,6 +19,7 @@ public:
 	void AddBelief(EBeliefName Key, TFunction<bool()> Condition);
 	void AddHasTargetsSensorBelief(EBeliefName Key, ASensorBase* Sensor);
 	void AddLocationBelief(EBeliefName Key, float Distance, FVector LocationCondition);
+	void AddDynamicLocationBelief(EBeliefName Key, float Distance, TFunction<FVector()> LocationProvider);
 
 private:
 	AGoapAgent* Agent;

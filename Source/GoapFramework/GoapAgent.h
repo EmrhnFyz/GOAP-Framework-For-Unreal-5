@@ -7,7 +7,11 @@
 #include "./Beliefs/Belief.h"
 #include "./Sensors/SensorBase.h"
 #include "./Planner/GoapPlanner.h"
+#include "./Blackboard/GoapBlackboard.h"
+#include "./Memory/AgentMemory.h"
 #include "GoapAgent.generated.h"
+
+class UBeliefFactory;
 
 
 UCLASS(Blueprintable)
@@ -57,7 +61,15 @@ public:
     UPROPERTY()
     UGoapPlanner* Planner = nullptr;
 
+    UPROPERTY(BlueprintReadOnly, Category = "GOAP")
+    UGoapBlackboard* Blackboard = nullptr;
+
+    UPROPERTY(BlueprintReadOnly, Category = "GOAP")
+    UAgentMemory* Memory = nullptr;
+
 protected:
+    UPROPERTY()
+    UBeliefFactory* BeliefFactory = nullptr;
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaTime) override;
 
@@ -66,6 +78,7 @@ protected:
     virtual void SetupBeliefs();
     virtual void SetupActions();
     virtual void SetupGoals();
+    virtual void SetupBlackboard();
 
     void CalculatePlan();
 

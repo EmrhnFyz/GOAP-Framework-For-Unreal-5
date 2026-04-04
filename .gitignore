@@ -71,4 +71,12 @@ Intermediate/*
 Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
-DerivedDataCache/*
+DerivedDataCache/
+*.mcp.json
+.cartograph/
+.claude-test-cmd
+.idea/
+.vscode/
+.vsconfig
+CLAUDE.md
+.claude/

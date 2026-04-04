@@ -1,5 +1,6 @@
 #include "GoapAgent.h"
 #include "PawnBase.h"
+#include "Beliefs/BeliefFactory.h"
 
 AGoapAgent::AGoapAgent()
 {
@@ -10,11 +11,17 @@ void AGoapAgent::BeginPlay()
 {
     Super::BeginPlay();
 
+    Blackboard = NewObject<UGoapBlackboard>(this);
+    Memory = NewObject<UAgentMemory>(this);
+    BeliefFactory = NewObject<UBeliefFactory>(this);
+    BeliefFactory->Initialize(this, Beliefs);
+
     SetupDictionaries();
     SetupTimers();
     SetupBeliefs();
     SetupActions();
     SetupGoals();
+    SetupBlackboard();
 
     Planner = NewObject<UGoapPlanner>(this);
 }
@@ -111,6 +118,7 @@ void AGoapAgent::SetupTimers() {}
 void AGoapAgent::SetupBeliefs() { Beliefs.Empty(); }
 void AGoapAgent::SetupActions() { Actions.Empty(); }
 void AGoapAgent::SetupGoals() { Goals.Empty(); }
+void AGoapAgent::SetupBlackboard() {}
 
 ASensorBase* AGoapAgent::GetSensor(ESensorName SensorName) const
 {
